@@ -1,4 +1,5 @@
 # SmartBin
+IoT Based Dustbin Dashboard
 
 Live URL: 
 ### Login Credentials
