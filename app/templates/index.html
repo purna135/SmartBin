@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Smart Bin - Home{% endblock %}
+
+{% block content %}
+<!-- component -->
+<div class="relative mt-10 h-screen pt-10 sm:pt-0 mb-10">
+
+  <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center md:gap-20">
+    <div class="content">
+      <div class="flex items-center gap-3">
+        <hr class="w-10 bg-orange-500 border " />
+        <span class="md:text-[18px] font-medium text-gray-800 ">
+          Smart Bin
+        </span>
+      </div>
+      <p class="text-[35px] lg:text-[40px] xl:text-[50px] font-bold leading-tight mt-5 sm:mt-0 ">
+        Welcode to Start Bin 🙏 <br />
+        Lorem ipsum dolor sit.
+      </p>
+      <p class="mt-5 md:text-md ">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo maxime magni fuga exercitationem alias ex tempora
+        reiciendis eius, expedita nam! Voluptates minima necessitatibus tempora! Cum voluptatem maxime esse beatae
+        placeat.
+      </p>
+      <div class="flex gap-4 mt-10">
+        <a href="{% url 'login' %}">
+          <button
+            class="font-medium text-[16px] flex items-center px-5 py-3 md:py-4 md:px-8 rounded-xl capitalize bg-gradient-to-r from-orange-300 to-orange-500 hover:from-pink-500 hover:to-yellow-500  relative gap-2 transition duration-300 hover:scale-105 text-white shadow-glass ">Get
+            Started
+            <span
+              class="animate-ping absolute right-0 top-0 w-3 h-3  rounded-full bg-gradient-to-r from-orange -400 to-orange-700 "></span>
+          </button>
+        </a>
+      </div>
+
+    </div>
+    <div class="relative sm:mt-0 mt-10 px-6 sm:px-0">
+      <img class="w-[500px] animate__animated animate__fadeInRight animate__delay-.5s"
+        src="https://images.unsplash.com/photo-1617641428728-a8165a486813?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
+        alt="" />
+    </div>
+  </div>
+</div>
+
+{% endblock %}
