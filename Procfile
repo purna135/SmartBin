@@ -1,0 +1,1 @@
+web: gunicorn SmartBin.wsgi --log-file -

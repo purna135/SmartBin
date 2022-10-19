@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Bin{% endblock %}
+
+{% block content %}
+<!-- component -->
+
+<body class="bg-gray-100">
+    <!-- Container -->
+    <div class="container mx-auto">
+        <div class="flex justify-center px-6 my-12">
+            <!-- Row -->
+            <div class="w-full xl:w-3/4 lg:w-11/12 flex">
+                <!-- Col -->
+                <div class="w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg"
+                    style="background-image: url('https://img.freepik.com/premium-photo/recycle-sign-green-garbage-trash-bin-person-character-mascot-with-red-question-mark-sign-yellow-background-3d-rendering_476612-14041.jpg')">
+                </div>
+                <!-- Col -->
+                <div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
+                    <h3 class="pt-4 text-2xl text-center">Add/Edit A Smart Bin</h3>
+                    <form class="px-8 pt-6 pb-8 mb-4 bg-white rounded" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% if messages %}
+                        <ul>
+                            {% for message in messages %}
+                            <li class="text-green-600 text-center mb-5 font-semibold">{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+
+
+                        {{ form.management_form }}
+                        <div class="mb-4 md:flex md:justify-between">
+                            <div class="mb-4 md:mr-2 md:mb-0">
+                                <label class="block mb-2 text-sm font-bold text-gray-700" for="{{ form.name.name}}">
+                                    Bin Name:
+                                </label>
+                                <input
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="{{ form.name.name}}" type="text" placeholder="Bin Name"
+                                    name="{{ form.name.name}}"
+                                    value="{% if form.name.value %}{{ form.name.value}}{% endif %}" required />
+                                <span class="text-red-600 text-[15px]">{{ form.name.errors }}</span>
+                            </div>
+                            <div class="md:ml-2">
+                                <label class="block mb-2 text-sm font-bold text-gray-700" for="{{ form.height.name}}">
+                                    Bin Height (in CM):
+                                </label>
+                                <input
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="{{ form.height.name}}" type="number" step="any" placeholder="Bin Height (in CM)"
+                                    name="{{ form.height.name}}"
+                                    value="{% if form.height.value %}{{ form.height.value}}{% endif %}" required />
+                                <span class="text-red-600 text-[15px]">{{ form.height.errors }}</span>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block mb-2 text-sm font-bold text-gray-700" for="{{ form.location.name}}">
+                                Bin Location:
+                            </label>
+                            <input
+                                class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                id="{{ form.location.name}}" type="text" placeholder="Bin Location"
+                                name="{{ form.location.name}}"
+                                value="{% if form.location.value %}{{ form.location.value}}{% endif %}" required />
+                            <span class="text-red-600 text-[15px]">{{ form.location.errors }}</span>
+                        </div>
+                        <div class="mb-4 md:flex md:justify-between">
+                            <div class="mb-4 md:mr-2 md:mb-0">
+                                <label class="block mb-2 text-sm font-bold text-gray-700"
+                                    for="{{ form.longitude.name}}">
+                                    Bin Longitude:
+                                </label>
+                                <input
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="{{ form.longitude.name}}" type="number" step="any"
+                                    placeholder="Bin Longitude (Optional)" name="{{ form.longitude.name}}"
+                                    value="{% if form.longitude.value %}{{ form.longitude.value}}{% endif %}" />
+                                <span class="text-red-600 text-[15px]">{{ form.longitude.errors }}</span>
+                            </div>
+                            <div class="md:ml-2">
+                                <label class="block mb-2 text-sm font-bold text-gray-700" for="{{ form.latitude.name}}">
+                                    Bin Latitude:
+                                </label>
+                                <input
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="{{ form.latitude.name}}" type="number" step="any"
+                                    placeholder="Bin Latitude (Optional)" name="{{ form.latitude.name}}"
+                                    value="{% if form.latitude.value %}{{ form.latitude.value}}{% endif %}" />
+                                <span class="text-red-600 text-[15px]">{{ form.latitude.errors }}</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-6 text-center">
+                            <button
+                                class="w-full px-4 py-2 font-bold text-white bg-indigo-500 rounded-full hover:bg-indigo-700 focus:outline-none focus:shadow-outline"
+                                type="submit">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+{% endblock %}
