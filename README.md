@@ -1,7 +1,7 @@
 # SmartBin
 IoT Based Dustbin Dashboard
 
-Live URL: https://hellobin.herokuapp.com/
+Live URL: https://smartbin.pythonanywhere.com/
 ### Login Credentials
 ```
 Username: admin
@@ -11,14 +11,14 @@ Password: pass
 ## API Calls
 ### Send Garbage Data
 ```
-URL: https://hellobin.herokuapp.com/add_garbage_data/
+URL: https://smartbin.pythonanywhere.com/add_garbage_data/
 allowed method: ["POST", "GET]
 parametes required: ["bin_id", "garbage_level"]
 ```
 
 ### Get Garbage Data
 ```
-https://hellobin.herokuapp.com/get_garbage_data/?bin_id=2
+https://smartbin.pythonanywhere.com/get_garbage_data/?bin_id=2
 ```
 
 ## Local Setup
