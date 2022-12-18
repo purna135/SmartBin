@@ -16,7 +16,8 @@
                         <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
                             <th class="py-3 px-6 text-left">Bin Name</th>
                             <th class="py-3 px-6 text-left">Bin ID</th>
-                            <th class="py-3 px-6 text-center">Bin Height (in CM)</th>
+                            <th class="py-3 px-6 text-center">Bin Height</th>
+                            <th class="py-3 px-6 text-center">Moisture</th>
                             <th class="py-3 px-6 text-center">Bin Status</th>
                             <th class="py-3 px-6 text-center">Actions</th>
                         </tr>
@@ -43,8 +44,21 @@
                                 </div>
                             </td>
                             <td class="py-3 px-6 text-center">
-                                <span>{{ bin.height }}</span>
+                                <span>{{ bin.height }} cm</span>
                             </td>
+
+                            <td class="py-3 px-6 text-center">
+                                {% if bin.moisture_status %}
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-6 h-6 m-auto">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                {% else %}
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="tomato" class="w-6 h-6 m-auto">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                {% endif %}
+                            </td>
+
                             <td class="py-3 px-6 text-center">
                                 <div class="flex items-center">
                                     <span class="mr-2">{{ bin.garbage_level }}%</span>

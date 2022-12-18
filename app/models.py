@@ -10,6 +10,7 @@ class Bin(models.Model):
     name = models.CharField(max_length=100)
     height = models.DecimalField(max_digits=6, decimal_places=2)
     garbage_level = models.DecimalField(max_digits=5, decimal_places=2, default=0, null=True, blank=True)
+    moisture_status = models.BooleanField(default=False, blank=True)
     location = models.CharField(max_length=200)
     longitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
     latitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
@@ -21,6 +22,7 @@ class Bin(models.Model):
 class Garbage(models.Model):
     bin_id = models.ForeignKey(Bin, on_delete=models.CASCADE)
     garbage_level = models.IntegerField()
+    moisture_status = models.BooleanField(default=False)
     garbage_percentage = models.DecimalField(max_digits=5, decimal_places=2, default=0)
     date = models.DateTimeField(auto_now_add=True)
 
@@ -32,9 +34,11 @@ class Garbage(models.Model):
         garbage_percentage = (self.garbage_level/bin.height) * 100
 
         bin.garbage_level = garbage_percentage
-        bin.save(update_fields=["garbage_level"])
+        bin.moisture_status = self.moisture_status
+        bin.save(update_fields=["garbage_level", "moisture_status"])
 
         self.garbage_percentage = garbage_percentage
+
         super().save(*args, **kwargs)
     
     def to_dict(self):
@@ -45,4 +49,5 @@ class Garbage(models.Model):
             "Time": self.date.time(),
             "Garbage Level": self.garbage_level,
             "Garbage Percentage": self.garbage_percentage,
+            "Moisture Status": self.moisture_status
         }
