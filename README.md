@@ -12,12 +12,17 @@ Password: pass
 ### Send Garbage Data
 ```
 URL: https://smartbin.pythonanywhere.com/add_garbage_data/
-allowed method: ["POST", "GET]
-parametes required: ["bin_id", "garbage_level"]
+allowed method: [POST, GET]
+parametes required: ["bin_id", "garbage_level", "moisture_status"]
 ```
 
 ### Get Garbage Data
 ```
+URL: https://smartbin.pythonanywhere.com/get_garbage_data/
+allowed method: [GET]
+parametes required: ["bin_id"]
+
+Example:
 https://smartbin.pythonanywhere.com/get_garbage_data/?bin_id=2
 ```
 
