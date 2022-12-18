@@ -156,6 +156,11 @@
 
                                                 <th scope="col"
                                                     class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    Moisture
+                                                </th>
+
+                                                <th scope="col"
+                                                    class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                     Garbage Level
                                                 </th>
                                             </tr>
@@ -164,18 +169,26 @@
                                             {% for garbage in garbages %}
                                             <tr>
                                                 <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
-                                                    {{ garbage.date.date }}
+                                                    {{ garbage.date.date | date:"d M, y" }}
                                                 </td>
                                                 <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
-                                                    {{ garbage.date.time }}
+                                                    {{ garbage.date.time | time:"h A" }}
                                                 </td>
                                                 <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
-                                                    {{ garbage.garbage_level }}
+                                                    {{ garbage.garbage_level | floatformat:1 }}
+                                                </td>
+
+                                                <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
+                                                    {% if garbage.moisture_status %}
+                                                        Yes
+                                                    {% else %}
+                                                        No
+                                                    {% endif %}
                                                 </td>
 
                                                 <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
                                                     <div class="flex items-center">
-                                                        <span class="mr-2">{{ garbage.garbage_percentage }}%</span>
+                                                        <span class="mr-2">{{ garbage.garbage_percentage | floatformat:1 }}%</span>
                                                         <div class="relative w-full">
                                                             <div
                                                                 class="overflow-hidden h-2 text-xs flex rounded bg-indigo-200">
