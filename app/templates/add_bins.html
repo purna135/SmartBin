@@ -67,6 +67,17 @@
                         </div>
                         <div class="mb-4 md:flex md:justify-between">
                             <div class="mb-4 md:mr-2 md:mb-0">
+                                <label class="block mb-2 text-sm font-bold text-gray-700" for="{{ form.latitude.name}}">
+                                    Bin Latitude:
+                                </label>
+                                <input
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="{{ form.latitude.name}}" type="number" step="any"
+                                    placeholder="Bin Latitude" name="{{ form.latitude.name}}"
+                                    value="{% if form.latitude.value %}{{ form.latitude.value}}{% endif %}" />
+                                <span class="text-red-600 text-[15px]">{{ form.latitude.errors }}</span>
+                            </div>
+                            <div class="md:ml-2">
                                 <label class="block mb-2 text-sm font-bold text-gray-700"
                                     for="{{ form.longitude.name}}">
                                     Bin Longitude:
@@ -74,20 +85,9 @@
                                 <input
                                     class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                                     id="{{ form.longitude.name}}" type="number" step="any"
-                                    placeholder="Bin Longitude (Optional)" name="{{ form.longitude.name}}"
+                                    placeholder="Bin Longitude" name="{{ form.longitude.name}}"
                                     value="{% if form.longitude.value %}{{ form.longitude.value}}{% endif %}" />
                                 <span class="text-red-600 text-[15px]">{{ form.longitude.errors }}</span>
-                            </div>
-                            <div class="md:ml-2">
-                                <label class="block mb-2 text-sm font-bold text-gray-700" for="{{ form.latitude.name}}">
-                                    Bin Latitude:
-                                </label>
-                                <input
-                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                    id="{{ form.latitude.name}}" type="number" step="any"
-                                    placeholder="Bin Latitude (Optional)" name="{{ form.latitude.name}}"
-                                    value="{% if form.latitude.value %}{{ form.latitude.value}}{% endif %}" />
-                                <span class="text-red-600 text-[15px]">{{ form.latitude.errors }}</span>
                             </div>
                         </div>
 
