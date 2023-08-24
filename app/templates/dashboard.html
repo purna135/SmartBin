@@ -41,7 +41,9 @@
                                         <img src="https://static.vecteezy.com/system/resources/previews/009/972/560/non_2x/trash-can-recycle-bin-icon-free-png.png"
                                             alt="" class="mr-3 h-6 sm:h-8">
                                     </div>
-                                    <span class="font-medium">{{ bin.name }}</span>
+                                    <a href="/details/?bin_id={{ bin.id }}" class="text-indigo-500">
+                                        <span class="font-medium">{{ bin.name }}</span>
+                                    </a>
                                 </div>
                             </td>
                             <td class="py-3 px-6 text-left">
