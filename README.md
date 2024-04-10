@@ -14,6 +14,13 @@ Password: pass
 URL: https://smartbin.pythonanywhere.com/add_garbage_data/
 allowed method: [POST, GET]
 parametes required: ["bin_id", "garbage_level", "moisture_status"]
+
+POST JSON Example:
+{
+    "bin_id": 2,
+    "garbage_level": 80,
+    "moisture_status": true
+}
 ```
 
 ### Get Garbage Data
